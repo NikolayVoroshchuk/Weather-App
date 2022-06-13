@@ -1,0 +1,62 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:react/recommended",
+    "airbnb-typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "tsconfig.json"
+    ],
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "no-unreachable": "error",
+    "comma-style": [
+      "error",
+      "last"
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      }
+    ],
+    "no-unexpected-multiline": "error",
+    "react/jsx-key": [
+      "error"
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}
