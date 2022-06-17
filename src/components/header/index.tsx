@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useWeather from '../../hooks/useWeather';
+import { useWeather } from '../../hooks/useWeather';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -66,47 +66,50 @@ export default function SearchAppBar() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Link to={'/'}>
-            <SvgIcon style={{ fontSize: '3rem', cursor: 'pointer' }}>
-              <Logo />
-            </SvgIcon>
-          </Link>
-          <Typography
-            variant="h5"
-            noWrap
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            Weather App
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search city..."
-              value={newCity}
-              onChange={handleCity}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-          <Button
-            variant="contained"
-            sx={{ marginLeft: '15px' }}
-            onClick={searchCity}
-          >
-            Add new city
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <div data-test='header-component'>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position='static'>
+          <Toolbar>
+            <Link to={'/'}>
+              <SvgIcon style={{ fontSize: '3rem', cursor: 'pointer' }}>
+                <Logo />
+              </SvgIcon>
+            </Link>
+            <Typography
+              variant='h5'
+              noWrap
+              component='div'
+              data-test="weather-typography"
+              sx={{
+                flexGrow: 1,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              Weather App
+            </Typography>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder='Search city...'
+                value={newCity}
+                onChange={handleCity}
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+            <Button
+              variant='contained'
+              sx={{ marginLeft: '15px' }}
+              onClick={searchCity}
+            >
+              Add new city
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </div>
   );
 }

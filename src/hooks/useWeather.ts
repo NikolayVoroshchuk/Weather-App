@@ -7,7 +7,7 @@ import {
   removeWeather,
 } from '../store/weatherSlice/weatherSlice';
 
-const useWeather = () => {
+export const useWeather = () => {
   const dispatch: AppDispatch = useDispatch();
   const state: any = useSelector((state) => state);
   useEffect(() => {
@@ -33,5 +33,3 @@ const useWeather = () => {
     deleteWeather
   };
 };
-
-export default useWeather;

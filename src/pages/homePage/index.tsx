@@ -1,6 +1,6 @@
 import MainLayout from '../../layout/mainLayout';
 import Card from '../../components/cards';
-import useWeather from '../../hooks/useWeather';
+import { useWeather } from '../../hooks/useWeather';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
@@ -8,10 +8,11 @@ const HomePage = () => {
   const { weather, updateOrAddWeather, deleteWeather } = useWeather();
 
   return (
-    <MainLayout>
+    <MainLayout data-test="details-home-page">
       <Typography
         variant="h4"
         component="div"
+        data-test="weather-title"
         sx={{
           display: 'flex',
           justifyContent: 'center',

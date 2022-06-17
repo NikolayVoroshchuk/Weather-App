@@ -55,7 +55,7 @@ export interface IWeatherList {
   sys: { pod: string };
   visibility: number;
   weather: Array<IWeatherField>;
-  wind: Array<IWindField>;
+  wind: IWindField;
 }
 
 interface IHourlyWeatherCityField {
@@ -69,7 +69,7 @@ interface IHourlyWeatherCityField {
   timezone: number;
 }
 
-export interface IHourlyWeatherListField {
+interface IHourlyWeatherListField {
   clouds: { all: number };
   dt: number;
   dt_txt: string;
@@ -78,13 +78,18 @@ export interface IHourlyWeatherListField {
   sys: { pod: string };
   visibility: number;
   weather: Array<IWeatherField>;
-  wind: Array<IWindField>;
+  wind: IWindField;
 }
-
 export interface IHourlyWeather {
   city: IHourlyWeatherCityField;
   cnt: number;
   cod: string;
-  list: Array<IWeatherList>;
+  list: Array<IHourlyWeatherListField>;
   message: number;
+  weather: IHourlyWeatherField;
+}
+interface IHourlyWeatherField {
+  cod: string;
+  list: Array<IWeatherList>;
+  city: IHourlyWeatherCityField;
 }

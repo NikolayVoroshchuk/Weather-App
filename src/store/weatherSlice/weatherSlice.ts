@@ -8,14 +8,14 @@ import { useHttp } from '../../services/http.hook';
 import { DELETE_WEATHER, LOCALSTORAGE_GET_WEATHER } from '../constants/weather';
 import { IWeather } from '../../interfaces/IWeather';
 
-interface IState {
+export interface IState {
   weather: Array<IWeather>;
   isLoading: boolean;
   isLoadingCard: string;
   error: boolean;
 }
 
-const initialState: IState = {
+export const initialState: IState = {
   weather: [],
   isLoading: false,
   isLoadingCard: '',

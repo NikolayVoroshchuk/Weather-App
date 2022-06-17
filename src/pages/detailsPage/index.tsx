@@ -7,9 +7,10 @@ import {
   Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import useHourlyWeather from '../../hooks/useHourlyWeather';
+import { useHourlyWeather } from '../../hooks/useHourlyWeather';
 import MainLayout from '../../layout/mainLayout';
 import { getCelciusFromKelvin } from '../../helpers/temperature';
+import { IWeatherList } from '../../interfaces/IWeather';
 
 const DetailsPage = () => {
   const {
@@ -17,7 +18,7 @@ const DetailsPage = () => {
   } = useHourlyWeather();
 
   return (
-    <MainLayout>
+    <MainLayout data-test="details-page-component">
       {cod !== '200' ? (
         <CircularProgress
           sx={{ position: 'absolute', left: '50%', top: '50%' }}
@@ -30,7 +31,7 @@ const DetailsPage = () => {
                 component="img"
                 src={`http://openweathermap.org/img/wn/${list[0].weather[0].icon}@2x.png`}
               />
-              <Typography variant="h3">
+              <Typography variant="h3" data-test="temperature-typography">
                 {getCelciusFromKelvin(list[0].main.temp)}
               </Typography>
               <Typography
@@ -81,7 +82,7 @@ const DetailsPage = () => {
               padding: '0 5px',
             }}
           >
-            {list.map((item: any) => (
+            {list.map((item: IWeatherList) => (
               <Box key={item.dt}>
                 <Card sx={{ margin: '10px 0', width: '140px' }}>
                   <CardContent>

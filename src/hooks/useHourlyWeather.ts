@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { AppDispatch } from '../store/store';
 import { fetchWeatherHourly } from '../store/weatherSlice/weatherSlice';
+import { IHourlyWeather } from '../interfaces/IWeather';
 
-const useHourlyWeather = () => {
+export const useHourlyWeather = () => {
   const dispatch: AppDispatch = useDispatch();
   const [searchParams] = useSearchParams();
-  const weather = useSelector(({ weather }: any) => weather);
+  const weather = useSelector(({ weather }: IHourlyWeather) => weather);
   const selectedCity = searchParams.get('city');
 
   useEffect(() => {
@@ -19,5 +20,3 @@ const useHourlyWeather = () => {
 
   return { weather };
 };
-
-export default useHourlyWeather;
